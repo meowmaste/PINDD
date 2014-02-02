@@ -20,7 +20,7 @@ development:
   database: pindd_development
   pool: 5
   username: pindd
-  password:
+  password: pindd
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,7 +49,7 @@ test:
   database: pindd_test
   pool: 5
   username: pindd
-  password:
+  password: pindd
 
 production:
   adapter: postgresql
