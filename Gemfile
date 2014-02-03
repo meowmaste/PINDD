@@ -14,6 +14,7 @@ gem 'devise'
 
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :doc do
@@ -25,7 +26,7 @@ group :production do
 end
 
 group :test do
-  gem 'minitest-capybara-rails'
+  gem 'minitest-rails-capybara'
   gem 'launchy'
   gem 'turn'
 end
