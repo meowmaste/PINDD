@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 1.2'
@@ -11,9 +11,11 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'better_errors'
+  gem 'rails_layout'
 end
 
 group :doc do
@@ -25,7 +27,7 @@ group :production do
 end
 
 group :test do
-  gem 'minitest-capybara-rails'
+  gem 'minitest-rails-capybara'
   gem 'launchy'
   gem 'turn'
 end
