@@ -1,5 +1,11 @@
-one:
-  content: My Text One
+jnote:
+  content: Joslyn's personal note
+  group: joslyn_default
 
-two:
-  content: My Text Two
+lnote:
+  content: Lillian's personal note
+  group: lillian_default
+
+jlnote:
+  content: Work on PINDD!
+  group: joslyn_lillian
