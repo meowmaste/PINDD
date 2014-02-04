@@ -7,9 +7,18 @@ feature "Notes / Creating A Note" do
     page.wont_have_content "Create Note"
   end
 
-  scenario "user can create notes" do
+  scenario "user can create notes from homepage through button" do
     sign_in
     click_on "New Note"
+    fill_in "note_content", with: "YAYAYAY!!!"
+    click_on "Create Note"
+    page.text.must_include "YAYAYAY!!!"
+    page.text.must_include "Note was successfully created"
+  end
+
+  scenario "user can create notes" do
+    sign_in
+    visit new_note_path
     fill_in "note_content", with: "YAYAYAY!!!"
     click_on "Create Note"
     page.text.must_include "YAYAYAY!!!"
