@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ .center{
+  width: 500px;
+  margin: 0 auto;
+ }
+
  .postit {    
   text-align:center;
   overflow: hidden;     
@@ -15,6 +20,25 @@
   border-bottom-right-radius: 60px 5px;
   display:inline-block;    
   background: rgb(255,255,136); /* Old browsers */
+}
+
+.postit-front {    
+  text-align:center; 
+  line-height: 25px;   
+  width: 350px;    
+  margin: 30px;    
+  min-height:300px;
+  max-height:300px;
+  position:relative;    
+  font-family:'Reenie Beanie', sans-serif;    
+  font-size:22px;      
+  border-bottom-right-radius: 100px 15px;
+  display:inline-block;    
+  background: rgb(255,255,136); /* Old browsers */
+
+  h2 {
+    margin-top: 10px;
+  }
 }
 
 .postit h2 {
@@ -63,7 +87,8 @@
   -moz-transform: scale(1.5);  
   -o-transform: scale(1.5);  
   position:relative;  
-  z-index:10;  
+  z-index:10; 
+  margin-left: px; 
 } 
 
 .new-note {

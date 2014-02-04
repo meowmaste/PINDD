@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.1.0'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 1.2'
