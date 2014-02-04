@@ -9,7 +9,6 @@ feature "Auth / Signing Up" do
     fill_in "Password confirmation", with: "password"
     click_on "Sign up"
     page.text.must_include "You have signed up successfully"
-    page.text.must_include "notes"
   end
 
   scenario "duplicate user cannot sign up" do
@@ -20,6 +19,5 @@ feature "Auth / Signing Up" do
     fill_in "Password confirmation", with: "password"
     click_on "Sign up"
     page.text.must_include "Email has already been taken"
-    page.text.wont_include "notes"
   end
 end
