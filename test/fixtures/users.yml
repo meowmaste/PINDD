@@ -1,14 +1,14 @@
 joslyn:
   email: joslyn@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  groups: joslyn-default, joslyn-lillian
+  groups: joslyn_default, joslyn_lillian
 
 lillian:
   email: lillian@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  groups: lillian-default, joslyn-lillian
+  groups: lillian_default, joslyn_lillian
 
 user:
   email: user@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  groups: user-default
+  groups: user_default
