@@ -21,9 +21,12 @@
 	font-size: 150%;
 	font-weight: bold;
 }
-.postit a {
-	font-size: 75%;
-	margin-top: 50px;
+.note-links {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
  
 .postit:nth-child(even) {
