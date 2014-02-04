@@ -10,19 +10,19 @@ feature "Groups / Deleting A Group" do
   scenario "users can delete a groups where she is a member" do
     sign_in(:joslyn)
     visit groups_path
-    page.find("a[href='#{group_path(groups(:jl))}'][data-method='delete']").click
-    page.text.must_include groups(:joslyn).name
-    page.text.wont_include groups(:jl).name
+    page.find("a[href='#{group_path(groups(:joslyn_lillian))}'][data-method='delete']").click
+    page.text.must_include groups(:joslyn_default).name
+    page.text.wont_include groups(:joslyn_lillian).name
   end
 
   scenario "users cannot delete a group where she is not a member" do
     sign_in
     visit groups_path
-    page.find("a[href='#{group_path(groups(:jl))}'][data-method='delete']").click
+    page.find("a[href='#{group_path(groups(:joslyn_lillian))}'][data-method='delete']").click
     click_on "logout"
 
     sign_in(:joslyn)
     visit groups_path
-    page.text.must_include groups(:jl).name
+    page.text.must_include groups(:joslyn_lillian).name
   end
 end

@@ -1,8 +1,11 @@
 jnote:
-  content: Joslyn's note
+  content: Joslyn's personal note
+  group: joslyn_default
 
 lnote:
-  content: Lillian's note
+  content: Lillian's personal note
+  group: lillian_default
 
 jlnote:
-  content: Joslyn and Lillian's shared note
+  content: Work on PINDD!
+  group: joslyn_lillian
