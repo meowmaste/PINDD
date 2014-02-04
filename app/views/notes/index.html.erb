@@ -1,5 +1,3 @@
-<h1>Listing notes</h1>
-
        
 <% @notes.each do |note| %>
   <div class="postit">
@@ -11,4 +9,9 @@
 <% end %>
 <br>
 
-<%= link_to 'New Note', new_note_path %>
+<div class="new-note">
+  <button type="button" class="btn btn-default btn-large">
+    <span class="glyphicon glyphicon-pushpin"></span>
+    <%= link_to 'New Note', new_note_path %>
+  </button>
+</div>
