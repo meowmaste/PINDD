@@ -1,14 +1,20 @@
-<%# navigation styled for Bootstrap 3.0 %>
-<nav class="navbar navbar-inverse navbar-fixed-right">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-    </div>
+<div class= "btn-group btn-group-justified" id="new-note-nav">
+  <div class="btn-group">
+    <button type="button" class="btn btn-default btn-large">
+      <span class="glyphicon glyphicon-pushpin"></span>
+      <%= link_to 'New Note', new_note_path %>
+    </button>
   </div>
-</nav>
+  <div class="btn-group">
+    <button type= "button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       <span class="glyphicon glyphicon-transfer"></span>
+       Groups <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li class ="divider"></li>
+      <li><a href="#">Home</a></li>
+    </ul>
+  </div>
+</div> 
