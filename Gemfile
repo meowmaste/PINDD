@@ -13,6 +13,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'cancan'
 
 group :development do
   gem 'better_errors'
