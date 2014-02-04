@@ -2,7 +2,7 @@ require "test_helper"
 
 feature "Notes / Deleting A Note" do
   scenario "unauthorized site visitor cannot delete note" do
-    visit new_note_path
+    visit notes_path
     page.text.must_include "You need to sign in or sign up"
     page.wont_have_content "Destroy"
   end
