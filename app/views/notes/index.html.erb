@@ -1,27 +1,17 @@
-<h1>Listing notes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.content %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+       
+<% @notes.each do |note| %>
+  <div class="postit">
+    <h2><%= note.content %></h2>
+      <%= link_to 'Show', note %>
+      <%= link_to 'Edit', edit_note_path(note) %>
+      <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
 <br>
 
-<%= link_to 'New Note', new_note_path %>
+<div class="new-note">
+  <button type="button" class="btn btn-default btn-large">
+    <span class="glyphicon glyphicon-pushpin"></span>
+    <%= link_to 'New Note', new_note_path %>
+  </button>
+</div>

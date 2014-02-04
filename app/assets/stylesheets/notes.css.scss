@@ -1,3 +1,69 @@
 // Place all the styles related to the notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ .postit {    
+  text-align:center;
+  overflow: hidden;     
+  width: 250px;    
+  margin: 25px;    
+  min-height:175px;
+  max-height:175px;
+  position:relative;    
+  font-family:'Reenie Beanie', sans-serif;    
+  font-size:22px;      
+  border-bottom-right-radius: 60px 5px;
+  display:inline-block;    
+  background: rgb(255,255,136); /* Old browsers */
+}
+
+.postit h2 {
+	font-size: 150%;
+	font-weight: bold;
+}
+.postit a {
+	font-size: 75%;
+	margin-top: 50px;
+}
+ 
+.postit:nth-child(even) {
+  -o-transform:rotate(4deg);  
+  -webkit-transform:rotate(4deg);  
+  -moz-transform:rotate(4deg);  
+  position:relative;  
+  top:5px;
+  background:#cfc;
+}
+
+.postit:nth-child(3n) {
+  -o-transform:rotate(-3deg);  
+  -webkit-transform:rotate(-3deg);  
+  -moz-transform:rotate(-3deg);  
+  position:relative;  
+  top:-5px;
+  background:#ccf;
+}
+
+.postit:nth-child(5n) {
+  -o-transform:rotate(5deg);  
+  -webkit-transform:rotate(5deg);  
+  -moz-transform:rotate(5deg);  
+  position:relative;  
+  top:-10px;
+}
+
+.postit:hover {  
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);  
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);  
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);  
+  -webkit-transform: scale(1.5);  
+  -moz-transform: scale(1.5);  
+  -o-transform: scale(1.5);  
+  position:relative;  
+  z-index:10;  
+} 
+
+.new-note {
+	width: 175px;
+	margin: 0 auto;
+}

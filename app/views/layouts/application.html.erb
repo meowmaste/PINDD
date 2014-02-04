@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Pindd" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Pindd" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">  
+  </head>
+  <body>
+    <p class="notice"><%= notice %></p>
+ +  <p class="alert"><%= alert %></p>
+    <%= yield %>
+ +
+ +  <%= render 'layouts/user' %>
+  <% if user_signed_in? %>
+    <%= render 'layouts/navigation' %>
+  <% end %>
+  </body>
+</html>
