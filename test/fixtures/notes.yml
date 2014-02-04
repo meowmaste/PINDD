@@ -1,5 +1,8 @@
-one:
-  content: My Text One
+jnote:
+  content: Joslyn's note
 
-two:
-  content: My Text Two
+lnote:
+  content: Lillian's note
+
+jlnote:
+  content: Joslyn and Lillian's shared note
