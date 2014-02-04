@@ -1,4 +1,3 @@
-       
 <% @notes.each do |note| %>
   <div class="postit">
     <h2><%= note.content %></h2>
@@ -7,11 +6,4 @@
       <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>
-<br>
 
-<div class="new-note">
-  <button type="button" class="btn btn-default btn-large">
-    <span class="glyphicon glyphicon-pushpin"></span>
-    <%= link_to 'New Note', new_note_path %>
-  </button>
-</div>
