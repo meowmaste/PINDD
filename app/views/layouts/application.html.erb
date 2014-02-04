@@ -9,9 +9,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+    <p class="notice"><%= notice %></p>
+ +  <p class="alert"><%= alert %></p>
+    <%= yield %>
+ +
+ +  <%= render 'layouts/user' %>
   </body>
 </html>
