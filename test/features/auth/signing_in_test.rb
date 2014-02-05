@@ -13,7 +13,6 @@ feature "Auth / Sign In" do
     fill_in "Password", with: "password"
     click_on "Sign in"
     page.text.must_include "Invalid email or password"
-    page.text.must_include "You are not signed in"
     page.text.wont_include "notes"
   end
 
