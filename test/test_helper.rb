@@ -4,7 +4,7 @@ require 'rails/test_help'
 require "minitest/rails"
 require "minitest/rails/capybara"
 
-Turn.config.trace = 3
+Turn.config.trace = 5
 Turn.config.format = :outline
 
 class ActiveSupport::TestCase

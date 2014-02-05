@@ -3,14 +3,12 @@ require "test_helper"
 feature "Notes / Showing A Note" do
   scenario "unauthorized site visitor cannot view notes" do
     visit notes_path
-    page.text.must_include "You are not authorized to access this page"
-    #page.text.must_include "You need to sign in or sign up"
-    #page.wont_have_content notes(:lnote).content
+    page.text.must_include "You need to sign in or sign up"
+    page.wont_have_content notes(:lnote).content
 
     visit note_path(notes(:lnote))
-    page.text.must_include "You are not authorized to access this page"
-    #page.text.must_include "You need to sign in or sign up"
-    #page.wont_have_content notes(:lnote).content
+    page.text.must_include "You need to sign in or sign up"
+    page.wont_have_content notes(:lnote).content
   end
 
   scenario "user can see notes she owns" do
@@ -29,7 +27,7 @@ feature "Notes / Showing A Note" do
 
     visit note_path(notes(:jnote))
     page.text.must_include "You are not authorized to access this page"
-    #page.text.wont_include notes(:jnote).content
+    page.text.wont_include notes(:jnote).content
   end
 
   scenario "user can see notes for group she belongs to" do

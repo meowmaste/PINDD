@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_filter :authenticate_user!
   load_and_authorize_resource
   skip_load_resource only: [:create]
   before_action :no_default_access, only: [:show, :edit, :update, :destroy]

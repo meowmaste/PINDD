@@ -32,11 +32,13 @@ feature "Groups / Editing A Group" do
     page.wont_have_content "Update Group"
   end
 
-  scenario "users cannot remove self from group" do
+  scenario "users cannot remove last member from group" do
     sign_in(:joslyn)
     visit edit_group_path(groups(:joslyn_lillian))
-    select(users(:joslyn).email, :from => 'Remove member')
+    select(users(:lillian).email, :from => 'Remove member')
     click_on "Update Group"
-    page.text.must_include "Cannot remove yourself from a group"
+    visit edit_group_path(groups(:joslyn_lillian))
+    page.wont_have_content "Remove member"
+    page.wont_have_field "group_remove_member"
   end
 end

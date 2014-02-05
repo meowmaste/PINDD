@@ -10,6 +10,7 @@ feature "Notes / Deleting A Note" do
   scenario "user can delete note that she owns" do
     sign_in(:lillian)
     visit notes_path
+    page.assert_selector('a',:text=>"Destroy", :exact=>'#{note_path(notes(:lnote))}')
     page.find("a[href='#{note_path(notes(:lnote))}'][data-method='delete']").click
     page.text.wont_include notes(:lnote).content
     page.text.must_include notes(:jlnote).content
@@ -18,7 +19,7 @@ feature "Notes / Deleting A Note" do
   scenario "user cannot delete note that she doesn't own" do
     sign_in(:lillian)
     visit notes_path
-    page.find("a[href='#{note_path(notes(:jnote))}'][data-method='delete']").click
+    page.assert_no_selector("Destroy", note_path(notes(:jnote)))
     click_on "logout"
 
     sign_in(:joslyn)
