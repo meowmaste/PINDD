@@ -19,4 +19,17 @@ class User < ActiveRecord::Base
     end 
   end 
 
+  after_create :create_default_group
+
+  def create_default_group
+    group = Group.new
+    group.name = self.email.concat '-default'
+    group.users << self
+    if group.save
+      self.groups << group
+    else
+      # ?????? group does not save so there's no default group
+      binding.pry
+    end
+  end
 end
