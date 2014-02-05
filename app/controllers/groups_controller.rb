@@ -1,9 +1,12 @@
 class GroupsController < ApplicationController
   load_and_authorize_resource 
   skip_load_resource only: [:create] 
+  before_action :no_default_access, only: [:show, :edit, :update, :destroy]
+
   # GET /groups
   # GET /groups.json
   def index
+    @groups = Group.where(default_group: false)
   end
 
   # GET /groups/1
@@ -22,11 +25,15 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params)
+    @group = Group.new(group_params.slice!(:"add_member",:"remove_member"))
+    @group.default_group = false
+
+    add_member = User.find_by(email: group_params[:"add_member"])
 
     respond_to do |format|
       if @group.save
-        current_user.groups << @group
+        @group.users << current_user
+        @group.users << add_member unless add_member.nil?
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render action: 'show', status: :created, location: @group }
       else
@@ -39,8 +46,13 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
+    add_member = User.find_by(email: group_params[:"add_member"])
+    remove_member = User.find_by(email: group_params[:"remove_member"])
+
     respond_to do |format|
-      if @group.update(group_params)
+      if @group.update(group_params.slice!(:"add_member",:"remove_member"))
+        @group.users << add_member unless add_member.nil?
+        @group.users.delete(remove_member) unless remove_member.nil?
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { head :no_content }
       else
@@ -64,6 +76,12 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :add_member, :remove_member)
+    end
+
+    def no_default_access
+      if @group.default_group
+        redirect_to groups_path
+      end
     end
 end

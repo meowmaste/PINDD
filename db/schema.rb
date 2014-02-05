@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140204230414) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "default_group"
   end
 
   create_table "groups_users", id: false, force: true do |t|

@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-  belongs_to :group
+  belongs_to :group, dependent: :destroy
 
   delegate :users, to: :group
 

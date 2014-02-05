@@ -15,6 +15,14 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label :add_member_email %><br>
+    <%= f.text_field :add_member %>
+  </div>
+  <div class="field">
+    <%= f.label :remove_member %><br>
+    <%= f.select :remove_member, @group.users.collect { |u| u.email }, :include_blank => true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
