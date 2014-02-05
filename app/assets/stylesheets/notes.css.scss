@@ -3,8 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
  .center{
-  width: 500px;
+  width: 410px;
   margin: 0 auto;
+ }
+
+ .alert, .notice {
+  text-align: center;
+  /* background-color: rgba(255, 255, 255, 0.5); */
  }
 
  .postit {    

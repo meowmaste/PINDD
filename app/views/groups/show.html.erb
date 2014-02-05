@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Group Name:</strong>
-  <%= @group.name %>
-</p>
+<div class="show-group">
+	<h3>
+  		<strong>Group Name:</strong>
+  		<br><%= @group.name %>
+	</h3>
 
-<p>
-  <strong>Group Members:</strong>
-  <ul>
-  <% @group.users.each do |u| %>
-    <li><%= u.email %></li>
-  <% end %>
-  </ul>
-</p>
-
-<%= link_to 'Edit Members', edit_group_path(@group) %> |
-<%= link_to 'Back to Groups List', groups_path %>
+	<h4>
+  		<strong>Group Members:</strong>
+  			<ul>
+  			<% @group.users.each do |u| %>
+    			<li><%= u.email %></li>
+  			<% end %>
+  			</ul>
+	</h4>
+	<%= link_to 'Edit', edit_group_path(@group) %> |
+	<%= link_to 'Back to Groups', groups_path %>
+</div>

@@ -13,8 +13,10 @@
     <% if user_signed_in? %>
     <%= render 'layouts/navigation' %>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="center">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     <%= yield %>
  <% if user_signed_in? %>
  <%= render 'layouts/user' %>
