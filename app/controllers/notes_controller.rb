@@ -1,11 +1,12 @@
 class NotesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource 
+  skip_load_resource only: [:create] 
 
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
   end
 
   # GET /notes/1
