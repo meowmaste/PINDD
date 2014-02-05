@@ -1,12 +1,12 @@
 class GroupsController < ApplicationController
-  load_and_authorize_resource 
-  skip_load_resource only: [:create] 
+  load_and_authorize_resource
+  skip_load_resource only: [:create]
   before_action :no_default_access, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.where(default_group: false)
+    @groups = Group.where(default_group: false).includes(:users).where("users.id"=>current_user.id)
   end
 
   # GET /groups/1
@@ -65,7 +65,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
-    @group.destroy
+    @group.destroy unless @group.default_group
     respond_to do |format|
       format.html { redirect_to groups_url }
       format.json { head :no_content }
