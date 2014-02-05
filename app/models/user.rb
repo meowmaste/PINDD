@@ -13,12 +13,12 @@ class User < ActiveRecord::Base
   def create_default_group
     group = Group.new
     group.name = self.email.concat '-default'
-    group.users << self
+    group.default_group = true
     if group.save
       self.groups << group
     else
       # ?????? group does not save so there's no default group
-      binding.pry
+      raise
     end
   end
 end

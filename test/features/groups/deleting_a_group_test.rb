@@ -10,8 +10,8 @@ feature "Groups / Deleting A Group" do
   scenario "users can delete a groups where she is a member" do
     sign_in(:joslyn)
     visit groups_path
+    page.text.must_include groups(:joslyn_lillian).name
     page.find("a[href='#{group_path(groups(:joslyn_lillian))}'][data-method='delete']").click
-    page.text.must_include groups(:joslyn_default).name
     page.text.wont_include groups(:joslyn_lillian).name
   end
 

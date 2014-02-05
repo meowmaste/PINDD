@@ -1,26 +1,14 @@
-<h1>Listing groups</h1>
+<% @groups.each do |group| %>
+  <div class="postit">
+    <%= group.name %>
+    <div class="note-links">
+      <%= link_to 'Show', group %></td>
+      <%= link_to 'Edit', edit_group_path(group) %></td>
+      <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 

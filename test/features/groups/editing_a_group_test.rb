@@ -10,7 +10,7 @@ feature "Groups / Editing A Group" do
   scenario "users can add a member to a group she belongs to" do
     sign_in(:joslyn)
     visit edit_group_path(groups(:joslyn_lillian))
-    fill_in "Add Member", with: users(:user).email
+    fill_in "group_add_member", with: users(:user).email
     click_on "Update Group"
     page.text.must_include users(:joslyn).email
     page.text.must_include users(:lillian).email
@@ -20,7 +20,7 @@ feature "Groups / Editing A Group" do
   scenario "users can remove a member to a group she belongs to" do
     sign_in(:joslyn)
     visit edit_group_path(groups(:joslyn_lillian))
-    select(users(:lillian).email, :from => 'Remove Box')
+    select(users(:lillian).email, :from => 'Remove member')
     click_on "Update Group"
     page.text.must_include users(:joslyn).email
     page.text.wont_include users(:lillian).email
@@ -30,5 +30,13 @@ feature "Groups / Editing A Group" do
     sign_in
     visit edit_group_path(groups(:joslyn_lillian))
     page.wont_have_content "Update Group"
+  end
+
+  scenario "users cannot remove self from group" do
+    sign_in(:joslyn)
+    visit edit_group_path(groups(:joslyn_lillian))
+    select(users(:joslyn).email, :from => 'Remove member')
+    click_on "Update Group"
+    page.text.must_include "Cannot remove yourself from a group"
   end
 end

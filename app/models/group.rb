@@ -3,4 +3,10 @@ class Group < ActiveRecord::Base
   has_many :notes
 
   validates :name, presence: true
+
+  def add_member
+  end
+
+  def remove_member
+  end
 end
