@@ -11,7 +11,7 @@ class Ability
 			can :create, Note
 
 			can :create, Group
-			can :read, Group, id: user.group_ids
+			can [:read, :edit, :update, :destroy], Group, id: user.group_ids
 		end
 	end 
 end 
