@@ -7,8 +7,11 @@ class Ability
 		if user.role == "admin"
 			can :manage, :all?
 		else 
-			can :manage, Note, :user_id => user.id 
+			can [:read, :edit, :update, :destroy], Note, group_id: user.group_ids
+			can :create, Note
+
 			can :create, Group
+			can :read, Group, id: user.group_ids
 		end
 	end 
 end 

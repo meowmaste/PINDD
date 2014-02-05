@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
   def create_default_group
     group = Group.new
     group.name = self.email.concat '-default'
-    group.users << self
     if group.save
       self.groups << group
     else
