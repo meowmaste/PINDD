@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_filter :authenticate_user!
-  load_and_authorize_resource 
-  skip_load_resource only: [:create] 
+  load_and_authorize_resource
+  skip_load_resource only: [:create]
 
   # GET /notes
   # GET /notes.json
@@ -29,7 +29,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to notes_url, notice: 'Note was successfully created.' }
         format.json { render action: 'show', status: :created, location: @note }
       else
         format.html { render action: 'new' }
