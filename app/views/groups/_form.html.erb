@@ -19,10 +19,12 @@
     <%= f.label :add_member_email %><br>
     <%= f.text_field :add_member %>
   </div>
-  <div class="field">
-    <%= f.label :remove_member %><br>
-    <%= f.select :remove_member, @group.users.collect { |u| u.email }, :include_blank => true %>
-  </div>
+  <% if @group.users.collect.count > 1 %>
+      <div class="field">
+        <%= f.label :remove_member %><br>
+        <%= f.select :remove_member, @group.users.collect { |u| u.email }, :include_blank => true %>
+      </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

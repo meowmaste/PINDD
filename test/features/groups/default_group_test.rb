@@ -7,9 +7,8 @@ feature "Groups / Default Group" do
     page.wont_have_content "-default"
 
     visit group_path(groups(:joslyn_default))
-    save_and_open_page
-    page.wont_have_content "Edit"
-    page.wont_have_content "Destroy"
-    page.wont_have_content "Delete"
+    page.assert_no_selector("Edit", group_path(groups(:joslyn_default)))
+    page.assert_no_selector("Destroy", group_path(groups(:joslyn_default)))
+    page.assert_no_selector("Delete", group_path(groups(:joslyn_default)))
   end
 end
