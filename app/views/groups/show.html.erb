@@ -17,3 +17,14 @@
 	<%= link_to 'Edit', edit_group_path(@group) %> |
 	<%= link_to 'Back to Groups', groups_path %>
 </div>
+
+<% @group.notes.each do |note| %>
+  <div class="postit">
+    <h2><%= note.content %></h2>
+      <div class="note-links">
+      <%= link_to 'Show', note %>
+      <%= link_to 'Edit', edit_note_path(note) %>
+      <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<% end %>

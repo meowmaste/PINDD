@@ -1,15 +1,18 @@
 <% @groups.each do |group| %>
-  <div class="postit">
+  <div class="lined-paper">
     <%= group.name %>
-    <div class="note-links">
+    <div class="group-links">
       <%= link_to 'Show', group %></td>
       <%= link_to 'Edit', edit_group_path(group) %></td>
       <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
-  </div>
 <% end %>
 
 
-<br>
+ <br>
 
-<%= link_to 'New Group', new_group_path %>
+	<button type="button" class="btn btn-success btn-lg">
+  		<span class="glyphicon glyphicon-plus"></span>
+		<%= link_to 'New Group', new_group_path %>
+	</button>
+</div>

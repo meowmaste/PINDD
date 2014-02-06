@@ -1,3 +1,47 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body, {
+    height: 100%;
+}
+
+.show-group {
+    background-color: rgba(0, 0, 22, 0.8);
+    float: left;
+    width: 225px;
+    overflow: hidden;
+    padding: 10px;
+
+    h3 {
+        color: white;
+    }
+
+    h4 {
+        color: #3276b1;
+    }
+
+    a {
+        color: rgb(255,255,136);
+    }
+}
+
+.lined-paper {
+    width: 600px;
+    height: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    font-family:'Reenie Beanie', sans-serif;    
+    font-size: 30px;
+    overflow: hidden;
+    background-color: #fff; 
+    background-image: 
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em;
+}
