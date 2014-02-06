@@ -22,7 +22,6 @@
   <div class="postit" style="background: <%= note_color note %>">
     <h2><%= note.content %></h2>
       <div class="note-links">
-      <%= link_to 'Show', note %>
       <%= link_to 'Edit', edit_note_path(note) %>
       <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
