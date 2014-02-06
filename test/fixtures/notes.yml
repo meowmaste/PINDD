@@ -1,11 +1,14 @@
 jnote:
   content: Joslyn's personal note
   group: joslyn_default
+  check: false
 
 lnote:
   content: Lillian's personal note
   group: lillian_default
+  check: false
 
 jlnote:
   content: Work on PINDD!
   group: joslyn_lillian
+  check: false
