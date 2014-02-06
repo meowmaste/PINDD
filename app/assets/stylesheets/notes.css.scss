@@ -24,7 +24,6 @@
   font-size:22px;      
   border-bottom-right-radius: 60px 5px;
   display:inline-block;    
-  background: rgb(255,255,136); /* Old browsers */
 }
 
 .postit-front {    
@@ -46,6 +45,16 @@
   }
 }
 
+.yellow {
+  background: rgb(255,255,136);
+}
+.blue {
+  background: #ADC1D6;
+}
+.pink {
+  background: #FFB7C5;
+}
+
 .postit h2 {
 	font-size: 150%;
 	font-weight: bold;
@@ -64,7 +73,6 @@
   -moz-transform:rotate(4deg);  
   position:relative;  
   top:5px;
-  background:#cfc;
 }
 
 .postit:nth-child(3n) {
@@ -73,7 +81,6 @@
   -moz-transform:rotate(-3deg);  
   position:relative;  
   top:-5px;
-  background:#ccf;
 }
 
 .postit:nth-child(5n) {

@@ -4,4 +4,8 @@ class Note < ActiveRecord::Base
   delegate :users, to: :group
 
   validates :content, presence: true
+
+  def my_note?
+    self.group.default_group?
+  end 
 end

@@ -1,5 +1,5 @@
 <% @notes.each do |note| %>
-  <div class="postit">
+  <div class="postit <%= note.my_note? ? "yellow" : "blue" %>">
     <h2><%= note.content %></h2>
       <div class="note-links">
       <%= link_to 'Show', note %>
