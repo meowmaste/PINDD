@@ -19,7 +19,7 @@
     <%= f.label :add_member_email %><br>
     <%= f.text_field :add_member %>
   </div>
-  <%= f.select :color, [["white", "FFF"], ["Black", "000"]] %>
+  <%= f.select :color, [["White", "#FFF"], ["Blue", "#ADC1D6"], ["Pink", "#FA98C4"], ["Green", "#98FABB"], ["Purple", "#D48EF5"], ["Neon Yellow", "#F3F315"], ["Neon Green", "#39FF14"], ["Neon Pink", "FF0099"], ["Neon Orage", "FF6600"]] %>
   <% if @group.users.collect.count > 1 %>
       <div class="field">
         <%= f.label :remove_member %><br>

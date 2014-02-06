@@ -34,7 +34,7 @@ html, body, {
     width: 600px;
     height: 800px;
     margin: 0 auto;
-    padding: 40px;
+    padding-top: 36px;
     text-align: center;
     font-family:'Reenie Beanie', sans-serif;    
     font-size: 30px;
@@ -44,4 +44,8 @@ html, body, {
     linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
     linear-gradient(#eee .1em, transparent .1em);
     background-size: 100% 1.2em;
+
+    a {
+        padding: 10px;
+    }
 }
