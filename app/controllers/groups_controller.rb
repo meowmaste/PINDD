@@ -29,12 +29,10 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params.slice!(:"add_member",:"remove_member"))
     @group.default_group = false
 
-    add_member = User.find_by(email: group_params[:"add_member"])
-
     respond_to do |format|
       if @group.save
         @group.users << current_user
-        @group.users << add_member unless add_member.nil?
+        process_add_member unless group_params[:"add_member"].empty?
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render action: 'show', status: :created, location: @group }
       else
@@ -47,25 +45,11 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    add_member = User.find_by(email: group_params[:"add_member"])
-    remove_member = User.find_by(email: group_params[:"remove_member"])
+    process_add_member unless group_params[:"add_member"].empty?
+    process_remove_member unless group_params[:"remove_member"].empty?
 
     respond_to do |format|
       if @group.update(group_params.slice!(:"add_member",:"remove_member"))
-        @group.users << add_member unless add_member.nil?
-        if !group_params[:"add_member"].empty?
-          if add_member.nil?
-            flash[:add_member] = group_params[:"add_member"]+' was not added to group.'
-          else
-            flash[:add_member] =  group_params[:"add_member"]+' was added to group.'
-          end
-        end
-
-        if remove_member
-          @group.users.delete(remove_member)
-          flash[:remove_member] =  group_params[:"remove_member"]+' was removed from group.'
-        end
-
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { head :no_content }
       else
@@ -95,6 +79,26 @@ class GroupsController < ApplicationController
     def no_default_access
       if @group.default_group
         redirect_to groups_path
+      end
+    end
+
+    def process_add_member
+      add_member = User.find_by(email: group_params[:"add_member"])
+      if add_member
+        @group.users << add_member
+        flash[:add_member] =  group_params[:"add_member"] + ' was added to group.'
+      else
+        flash[:add_member] = group_params[:"add_member"] + ' was not added to group.'
+      end
+    end
+
+    def process_remove_member
+      remove_member = User.find_by(email: group_params[:"remove_member"])
+      if remove_member
+        @group.users.delete(remove_member)
+        flash[:remove_member] =  group_params[:"remove_member"]+' was removed from group.'
+      else
+        # shouldn't get here....
       end
     end
 end

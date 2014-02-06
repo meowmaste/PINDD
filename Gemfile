@@ -30,6 +30,7 @@ group :production do
 end
 
 group :test do
+  gem 'capybara-webkit' #for checkbox test
   gem 'minitest-rails-capybara'
   gem 'launchy'
   gem 'turn'

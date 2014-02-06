@@ -12,9 +12,12 @@ feature "Groups / Editing A Group" do
     visit edit_group_path(groups(:joslyn_lillian))
     fill_in "group_add_member", with: users(:user).email
     click_on "Update Group"
-    page.text.must_include users(:joslyn).email
-    page.text.must_include users(:lillian).email
-    page.text.must_include users(:user).email
+    within (".show-group") do
+      page.text.must_include users(:joslyn).email
+      page.text.must_include users(:lillian).email
+      page.text.must_include users(:user).email
+    end
+    page.text.must_include "was added to group"
   end
 
   scenario "users can remove a member to a group she belongs to" do
@@ -22,8 +25,11 @@ feature "Groups / Editing A Group" do
     visit edit_group_path(groups(:joslyn_lillian))
     select(users(:lillian).email, :from => 'Remove member')
     click_on "Update Group"
-    page.text.must_include users(:joslyn).email
-    page.text.wont_include users(:lillian).email
+    within (".show-group") do
+      page.text.must_include users(:joslyn).email
+      page.text.wont_include users(:lillian).email
+    end
+    page.text.must_include "was removed from group"
   end
 
   scenario "users cannot edit a group she doesn't belong to" do

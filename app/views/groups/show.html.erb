@@ -16,5 +16,5 @@
 	<%= link_to 'Back to Groups', groups_path %>
 </div>
 
-<%= render @group.notes, :as => :note %>
+<%= render @group.notes.order(:id), :as => :note %>
 
