@@ -1,15 +1,13 @@
 <div class= "btn-group btn-group-justified" id="note-nav">
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-large">
-      <span class="glyphicon glyphicon-pushpin"></span>
-      <%= link_to 'New Note', new_note_path %>
-    </button>
+    <%= link_to new_note_path, class: 'btn btn-default btn-large' do %>
+      <span class="glyphicon glyphicon-pushpin"></span> New Note
+    <% end %>
   </div>
   <div class="btn-group">
-    <button type= "button" class="btn btn-primary btn large">
-      <span class="glyphicon glyphicon-transfer"></span>
-      <%= link_to 'Groups', groups_path %>
-    </button>
+    <%= link_to groups_path, class: 'btn btn-primary btn large' do %>
+      <span class="glyphicon glyphicon-transfer"></span> Groups
+    <% end %>
   </div>
   <div class="btn-group">
     <button type= "button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
