@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="show-group">
 	<h3>
   		<strong>Group Name:</strong>
@@ -18,12 +16,5 @@
 	<%= link_to 'Back to Groups', groups_path %>
 </div>
 
-<% @group.notes.each do |note| %>
-  <div class="postit" style="background: <%= note_color note %>">
-    <h2><%= note.content %></h2>
-      <div class="note-links">
-      <%= link_to 'Edit', edit_note_path(note) %>
-      <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-  </div>
-<% end %>
+<%= render @group.notes, :as => :note %>
+
