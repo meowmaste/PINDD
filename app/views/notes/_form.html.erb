@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
-<div class="postit">
+<div class="center">
+  <div class="postit">
 
-  <div class="field">
-    <%= f.label :to %>
-    <%= f.select :group_id, current_user.groups.map{ |g| [( g.default_group? ? "me" : g.name), g.id]} %>
-  </div>
-  <div class="field">
-    <%= f.text_area :content%>
-  </div>
+    <div class="field">
+      <%= f.label :to %>
+      <%= f.select :group_id, current_user.groups.map{ |g| [( g.default_group? ? "me" : g.name), g.id]} %>
+    </div>
+    <div class="field">
+      <%= f.text_area :content%>
+    </div>
 
-</div>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

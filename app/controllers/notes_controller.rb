@@ -62,10 +62,19 @@ class NotesController < ApplicationController
     end
   end
 
+  def toggle
+    @note = Note.find(params[:id])
+    if @note.update_attributes(:check => params[:check])
+      # ... update successful
+    else
+      # ... update failed
+    end
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:content, :group_id)
+      params.require(:note).permit(:content, :check, :group_id)
     end
 end
