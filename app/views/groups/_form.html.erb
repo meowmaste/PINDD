@@ -26,7 +26,7 @@
         <%= f.select :remove_member, @group.users.collect { |u| u.email }, :include_blank => true %>
       </div>
   <% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <div class="actions">
+          <%= f.submit %>
+      </div>
 <% end %>

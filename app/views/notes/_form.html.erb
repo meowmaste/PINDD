@@ -16,7 +16,7 @@
 
     <div class="field">
       <%= f.label :to %>
-      <%= f.select :group_id, current_user.groups.map{ |g| [( g.default_group? ? "me" : g.name), g.id]} %>
+      <%= f.select :group_id, current_user.groups.map{ |g| [( g.default_group? ? "myself" : g.name), g.id]} %>
     </div>
     <div class="field">
       <%= f.text_area :content%>

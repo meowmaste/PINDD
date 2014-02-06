@@ -5,6 +5,16 @@
  .center{
   width: 410px;
   margin: 0 auto;
+  text-align: center;
+
+  a {
+    margin: 0 auto;
+
+  }
+  .actions {
+    padding: 0 auto;
+    text-align: center;
+  }
  }
 
  .alert, .notice {
@@ -54,14 +64,15 @@
  .new-postit {
   text-align:center;
   overflow: hidden;
-  width: 250px;
+  width: 300px;
   margin: 25px;
-  min-height:175px;
-  max-height:175px;
+  padding: 35px;
+  min-height:200px;
+  max-height:200px;
   position:relative;
   font-family:'Reenie Beanie', sans-serif;
   font-size:22px;
-  border-bottom-right-radius: 60px 5px;
+  border-bottom-right-radius: 75px 15px;
   display:inline-block;
   background: rgb(255,255,136); /* Old browsers */
 
