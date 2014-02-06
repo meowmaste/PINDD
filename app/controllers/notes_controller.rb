@@ -69,6 +69,7 @@ class NotesController < ApplicationController
     else
       # ... update failed
     end
+    render :nothing => true
   end
 
   private
