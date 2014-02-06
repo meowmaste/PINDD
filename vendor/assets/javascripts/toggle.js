@@ -1,12 +1,9 @@
-$(".note-check").bind('change', function(){
-  if (this.checked){
+$(document).ready(function() {
+  $(".note-check").bind('change', function(){
     $.ajax({
       url: '/notes/'+this.value+'/toggle',
       type: 'POST',
       data: {"check": this.checked}
     });
-  }
-  else {
-     alert("no");
-  }
+  });
 });
