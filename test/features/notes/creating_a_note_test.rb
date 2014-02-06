@@ -9,7 +9,7 @@ feature "Notes / Creating A Note" do
 
   scenario "user can create notes from homepage through button" do
     sign_in
-    click_on "New Note"
+    click_link "New Note"
     fill_in "note_content", with: "YAYAYAY!!!"
     click_on "Create Note"
     page.text.must_include "YAYAYAY!!!"
