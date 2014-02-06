@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @note.content %>
-</p>
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+  <div class="postit">
+    <h2><%= @note.content %></h2>
+      <%= @note.check %>
+      <div class="note-links">
+      <%= link_to 'Show', @note %>
+      <%= link_to 'Edit', edit_note_path(@note) %>
+      <%= link_to 'Destroy', @note, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>

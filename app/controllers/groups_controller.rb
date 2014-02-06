@@ -53,7 +53,19 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.update(group_params.slice!(:"add_member",:"remove_member"))
         @group.users << add_member unless add_member.nil?
-        @group.users.delete(remove_member) unless remove_member.nil?
+        if !group_params[:"add_member"].empty?
+          if add_member.nil?
+            flash[:add_member] = group_params[:"add_member"]+' was not added to group.'
+          else
+            flash[:add_member] =  group_params[:"add_member"]+' was added to group.'
+          end
+        end
+
+        if remove_member
+          @group.users.delete(remove_member)
+          flash[:remove_member] =  group_params[:"remove_member"]+' was removed from group.'
+        end
+
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { head :no_content }
       else

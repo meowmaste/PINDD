@@ -7,17 +7,21 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-    <link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">  
+    <link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">
   </head>
   <body>
     <% if user_signed_in? %>
-    <%= render 'layouts/navigation' %>
+      <%= render 'layouts/navigation' %>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+
     <%= yield %>
- <% if user_signed_in? %>
- <%= render 'layouts/user' %>
- <% end %>
+
+    <% if user_signed_in? %>
+      <%= render 'layouts/user' %>
+    <% end %>
   </body>
 </html>

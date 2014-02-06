@@ -1,6 +1,7 @@
 <% @notes.each do |note| %>
   <div class="postit">
     <h2><%= note.content %></h2>
+      <%= note.check? %>
       <div class="note-links">
       <%= link_to 'Show', note %>
       <%= link_to 'Edit', edit_note_path(note) %>
