@@ -14,6 +14,7 @@ html, body, {
     background-color: rgba(0, 0, 22, 0.8);
     float: left;
     width: 225px;
+    text-align: center;
     overflow: hidden;
     padding: 10px;
 
@@ -30,8 +31,29 @@ html, body, {
     }
 }
 
+.new-group {
+    background-color: rgba(0, 0, 22, 0.8);
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 225px;
+    color: yellow;
+    text-align: center;
+    overflow: hidden;
+    padding: 10px;
+
+    h3 {
+        color: white;
+    }
+    a {
+        color: rgb(255,255,136);
+    }
+    .group-submit {
+        color: black;
+    }
+}
+
 .lined-paper {
-    width: 600px;
+    width: 80%;
     height: 800px;
     margin: 50px auto;
     padding-top: 22px;
