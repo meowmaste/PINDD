@@ -19,7 +19,7 @@
 </div>
 
 <% @group.notes.each do |note| %>
-  <div class="postit <%= note.my_note? ? "yellow" : "blue" %>">
+  <div class="postit" style="background: <%= note_color note %>">
     <h2><%= note.content %></h2>
       <div class="note-links">
       <%= link_to 'Show', note %>
