@@ -1,15 +1,15 @@
 joslyn_default:
-  name: Joslyn (Default)
+  name: Joslyn-default
   users: joslyn
   default_group: true
 
 lillian_default:
-  name: Lillian (Default)
+  name: Lillian-default
   users: lillian
   default_group: true
 
 user_default:
-  name: User (Default)
+  name: User-default
   users: user
   default_group: true
 
