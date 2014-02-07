@@ -19,7 +19,7 @@
     <%= f.label :add_member_email %><br>
     <%= f.text_field :add_member, :class => 'group-submit' %>
   </div>
-  <%= f.select :color, [["White", "#FFF"], ["Blue", "#ADC1D6"], ["Pink", "#FA98C4"], ["Green", "#98FABB"], ["Purple", "#D48EF5"], ["Neon Yellow", "#F3F315"], ["Neon Green", "#39FF14"], ["Neon Pink", "#FF0099"], ["Neon Orange", "FF6600"]] %>
+  <%= f.select :color, [["White", "#FFF"],["Space", "url( #{image_path('space-background.jpg')})"], ["Blue", "#ADC1D6"], ["Pink", "#FA98C4"], ["Green", "#98FABB"], ["Purple", "#D48EF5"], ["Neon Yellow", "#F3F315"], ["Neon Green", "#39FF14"], ["Neon Pink", "#FF0099"], ["Neon Orange", "FF6600"]] %>
   <% if @group.users.collect.count > 1 %>
       <div class="field">
         <%= f.label :remove_member %><br>
