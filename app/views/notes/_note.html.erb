@@ -1,6 +1,7 @@
 
   <div class="postit" style="background: <%= note_color note %>">
-    <h2><%= note.content %></h2>
+    <label id="note-label[<%= note.id %>]" for="check_<%= note.id %>" style="text-decoration: <%= note.check ? 'line-through' : 'none' %>">
+      <%= note.content %></label>
     <div class="note-links">
       <%= check_box_tag "check[#{note.id}]", note.id, note.check, :class => "note-check" %>
       <%= link_to raw('<i class="glyphicon glyphicon-pencil"></i>'), edit_note_path(note) %>

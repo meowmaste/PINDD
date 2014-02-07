@@ -46,7 +46,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
   def update
     process_add_member unless group_params[:"add_member"].empty?
-    process_remove_member unless group_params[:"remove_member"].empty?
+    process_remove_member unless group_params[:"remove_member"].nil? || group_params[:"remove_member"].empty?
 
     respond_to do |format|
       if @group.update(group_params.slice!(:"add_member",:"remove_member"))
@@ -88,7 +88,7 @@ class GroupsController < ApplicationController
         @group.users << add_member
         flash[:add_member] =  group_params[:"add_member"] + ' was added to group.'
       else
-        flash[:add_member] = group_params[:"add_member"] + ' was not added to group.'
+        flash[:add_member_fail] = group_params[:"add_member"] + ' was not added to group.'
       end
     end
 

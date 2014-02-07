@@ -1,6 +1,6 @@
 <div class="lined-paper">
 <% @groups.each do |group| %>
-    <%= group.name %>
+    <h2><%= group.name %></h2>
     <div class="group-links">
       <%= link_to 'Show', group %></td>
       <%= link_to 'Edit', edit_group_path(group) %></td>
@@ -9,7 +9,7 @@
 <% end %>
 
  <br>
-	
+
 <div class="btn-group">
   <%= link_to new_group_path, class: 'btn btn-success btn-large' do %>
   <span class="glyphicon glyphicon-plus"></span> New Group

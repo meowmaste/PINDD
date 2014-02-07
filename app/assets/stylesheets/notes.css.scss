@@ -90,6 +90,11 @@
   text-align: center;
 }
 
+.note-links a:hover {
+  background-color: transparent;
+}
+
+
 .postit:nth-child(even) {
   -o-transform:rotate(4deg);
   -webkit-transform:rotate(4deg);
@@ -133,6 +138,10 @@
   padding-top: 30px;
 }
 
-.note-check {
-  padding: 15px;
+.checked {
+  text-decoration: line-through;
+}
+
+.notchecked {
+  text-decoration: none;
 }
