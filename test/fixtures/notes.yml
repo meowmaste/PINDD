@@ -8,6 +8,16 @@ lnote:
   group: lillian_default
   check: false
 
+lnote2:
+  content: Another note for Lillian
+  group: lillian_default
+  check: false
+
+lnote3:
+  content: Third note, Lillian forgets a lot.
+  group: lillian_default
+  check: false
+
 jlnote:
   content: Work on PINDD!
   group: joslyn_lillian

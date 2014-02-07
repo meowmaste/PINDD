@@ -7,12 +7,13 @@ feature "Notes / Deleting A Note" do
     page.wont_have_content "Destroy"
   end
 
-  scenario "user can delete note that she owns" do
+  scenario "user with many notes can delete note that she owns" do
     sign_in(:lillian)
     visit notes_path
-    page.assert_selector('a',:text=>"Destroy", :exact=>'#{note_path(notes(:lnote))}')
     page.find("a[href='#{note_path(notes(:lnote))}'][data-method='delete']").click
     page.text.wont_include notes(:lnote).content
+    page.text.must_include notes(:lnote2).content
+    page.text.must_include notes(:lnote3).content
     page.text.must_include notes(:jlnote).content
   end
 
