@@ -10,6 +10,10 @@ html, body, {
     height: 100%;
 }
 
+#note-nav li{
+    list-style-type: none;
+}
+
 .show-group {
     background-color: rgba(0, 0, 22, 0.8);
     float: left;
