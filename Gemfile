@@ -33,5 +33,6 @@ group :test do
   gem 'capybara-webkit' #for checkbox test
   gem 'minitest-rails-capybara'
   gem 'launchy'
+  gem 'simplecov'
   gem 'turn'
 end
