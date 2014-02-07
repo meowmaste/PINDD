@@ -5,5 +5,10 @@ $(document).ready(function() {
       type: 'POST',
       data: {"check": this.checked}
     });
+    if($(this).attr("checked")) {
+      document.getElementById("note-label["+this.value+"]").style.textDecoration = "line-through";
+    } else {
+      document.getElementById("note-label["+this.value+"]").style.textDecoration = "none";
+    }
   });
 });

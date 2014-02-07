@@ -20,9 +20,6 @@ pre {
 
 a {
   color: #000;
-  &:visited {
-    color: #666;
-  }
   &:hover {
     color: #fff;
     background-color: #000;
@@ -35,9 +32,15 @@ div {
   }
 }
 
-#notice {
-  color: green;
+.notice {
+  background: rgb(0,255,0);
+  background: rgba(0,255,0,.5);
+  border: 2px solid green;
+  border-radius: 2px;
+  font-weight: bold;
+  margin: 5px;
 }
+
 
 .field_with_errors {
   padding: 2px;
@@ -51,6 +54,8 @@ div {
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #f0f0f0;
   h2 {
     text-align: left;
