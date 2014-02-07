@@ -8,11 +8,10 @@
     </div>
 <% end %>
 
-
  <br>
-
-	<button type="button" class="btn btn-success btn-lg">
-  		<span class="glyphicon glyphicon-plus"></span>
-		<%= link_to 'New Group', new_group_path %>
-	</button>
+	
+<div class="btn-group">
+  <%= link_to new_group_path, class: 'btn btn-success btn-large' do %>
+  <span class="glyphicon glyphicon-plus"></span> New Group
+  <% end %>
 </div>

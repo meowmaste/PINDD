@@ -70,10 +70,13 @@ html, body, {
 
     a {
         padding: 5px;
-        font-size: 26px;
+        font-size: 24px;
     }
+    a.btn btn-default btn-large {
+        font-family: verdana;
+    }
+}
 
-    button {
-        margin: 20px;
-    }
+.group-links {
+    margin-bottom: 25px;
 }
