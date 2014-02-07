@@ -3,7 +3,7 @@
     <h2><%= note.content %></h2>
     <div class="note-links">
       <%= check_box_tag "check[#{note.id}]", note.id, note.check, :class => "note-check" %>
-      <%= link_to 'Edit', edit_note_path(note) %>
-      <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to raw('<i class="glyphicon glyphicon-pencil"></i>'), edit_note_path(note) %>
+      <%= link_to raw('<i class="glyphicon glyphicon-trash"></i>'), note, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   </div>

@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-  belongs_to :group, dependent: :destroy
+  belongs_to :group
 
   delegate :users, to: :group
 
@@ -7,5 +7,5 @@ class Note < ActiveRecord::Base
 
   def my_note?
     self.group.default_group?
-  end 
+  end
 end
