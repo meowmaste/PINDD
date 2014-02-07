@@ -1,6 +1,6 @@
 
   <div class="postit" style="background: <%= note_color note %>">
-    <label id="note-label[<%= note.id %>]" for="check_<%= note.id %>" style="text-decoration: <%= note.check ? 'line-through' : 'none' %>">
+    <label id="note-label[<%= note.id %>]" for="check_<%= note.id %>" style="text-decoration:<%= note.check ? 'line-through' : 'none' %>;<%= font_size note %>;">
       <%= note.content %></label>
     <div class="note-links">
       <%= check_box_tag "check[#{note.id}]", note.id, note.check, :class => "note-check" %>
