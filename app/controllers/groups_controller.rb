@@ -7,7 +7,8 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.where(default_group: false).includes(:users).where("users.id"=>current_user.id)
+    @groups = Group.for_user(current_user)
+    #@groups = Group.where(default_group: false).includes(:users).where("users.id"=>current_user.id)
   end
 
   # GET /groups/1
@@ -45,9 +46,8 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    process_add_member unless group_params[:"add_member"].empty?
-    process_remove_member unless group_params[:"remove_member"].nil? || group_params[:"remove_member"].empty?
-
+    process_add_member unless group_params[:"add_member"].blank?
+    process_remove_member unless group_params[:"remove_member"].blank?
     respond_to do |format|
       if @group.update(group_params.slice!(:"add_member",:"remove_member"))
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
@@ -77,7 +77,7 @@ class GroupsController < ApplicationController
     end
 
     def no_default_access
-      if @group.default_group
+      if @group.default_group?
         redirect_to groups_path
       end
     end

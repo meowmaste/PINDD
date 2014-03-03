@@ -4,9 +4,9 @@ class Group < ActiveRecord::Base
 
   validates :name, presence: true
 
-  def add_member
+  def add_member(user)
   end
 
-  def remove_member
+  def remove_member(user)
   end
 end
