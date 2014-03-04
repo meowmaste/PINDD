@@ -9,7 +9,7 @@ require "minitest/rails/capybara"
 
 Turn.config.trace = 5
 Turn.config.format = :outline
-Capybara.javascript_driver = :webkit #for checkbox test
+Capybara.javascript_driver = :webkit #for checkbox/character countdown test
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
