@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require toggle
+//= require sync
 //= require_tree .
