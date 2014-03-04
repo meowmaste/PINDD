@@ -43,6 +43,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
+        sync_update @note
         format.html { redirect_to notes_url, notice: 'Note was successfully updated.' }
         format.json { head :no_content }
       else
@@ -65,6 +66,7 @@ class NotesController < ApplicationController
   def toggle
     @note = Note.find(params[:id])
     if @note.update_attributes(:check => params[:check])
+      sync_update @note
       # ... update successful
     else
       # ... update failed

@@ -1,1 +1,3 @@
-<%= render @notes.order(:id), :as => :note %>
+<% @notes.order(:id).each do |note| %>
+  <%= sync partial: 'note', resource: note %>
+<% end %>
