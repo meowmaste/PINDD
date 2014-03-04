@@ -9,5 +9,4 @@ before_script:
   - "psql -c 'create database pindd_test;' -U postgres"
   - "rake db:migrate"
 env:
-  global:
-  secure: "hxlP6pA9SGfIh+6MpF4ChYBIYH1Sc/n7JXoO2vTYFmbP1l7KGOh5Fys7l3xyXD57rzAUSVZOs2wovozhZYw3UqIRIp6QSCzh80QD33cMyTF8FrWJyTqzHJdd/TTQzKkJT7lrLMnvCQknk2zkdlqCwXJaC/V/eMH1x2EgvAgTlYg="
+  SECRET_KEY_BASE="$(bundle exec rake secret)"
