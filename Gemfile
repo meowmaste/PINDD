@@ -5,12 +5,13 @@ gem 'bootstrap-sass'
 gem 'cancan'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'figaro'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'minitest-rails'
 gem 'pg'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'rake'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -18,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'brakeman', :require => false
   gem 'rails_layout'
 end
 

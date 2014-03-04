@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Pindd::Application.config.secret_key_base = 'cb91eae1ab8f7e72c6546ab8cbc4608e2a044e5d06d311da194fcc26bf07968e0522f0e564312a1cf5e2299aad532d4adcc9b2269dc5ff7217e43b2e85d91489'
+Pindd::Application.config.secret_key_base = ENV["SECRET_KEY_BASE"]
