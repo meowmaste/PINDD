@@ -14,6 +14,7 @@ gem 'pg'
 gem 'rails', '4.0.3'
 gem 'rake'
 gem 'sass-rails', '~> 4.0.0'
+gem 'sync'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
@@ -21,6 +22,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'brakeman', :require => false
   gem 'rails_layout'
+  gem 'faye'
+  gem 'thin', require: false
 end
 
 group :doc do
@@ -29,6 +32,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'pusher'
 end
 
 group :test do
