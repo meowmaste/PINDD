@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params.slice!(:"add_member",:"remove_member"))
+    @group = Group.new(group_params.slice!(:"add_member", :"remove_member"))
     @group.default_group = false
 
     respond_to do |format|
