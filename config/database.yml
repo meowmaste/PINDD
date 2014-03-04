@@ -20,7 +20,10 @@ development:
   database: pindd_development
   host: localhost
   pool: 5
+<<<<<<< HEAD
   username: pindd
+=======
+>>>>>>> 2bb5714853e45df7fcbc7e3e22e0847a55d18ce7
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,13 +52,9 @@ test:
   database: pindd_test
   host: localhost
   pool: 5
-  username: postgres
-  password: 
 
 production:
   adapter: postgresql
   encoding: unicode
   database: pindd_production
   pool: 5
-  username: pindd
-  password:
