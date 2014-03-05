@@ -14,6 +14,14 @@ html, body, {
     list-style-type: none;
 }
 
+input[type="checkbox"] {
+    margin: 3px;
+}
+.dropdown-menu > li > a {
+    display: inline;
+    padding: 7px 5px;
+}
+
 .show-group {
     background-color: rgba(0, 0, 22, 0.8);
     float: left;
