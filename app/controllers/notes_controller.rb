@@ -68,10 +68,11 @@ class NotesController < ApplicationController
     if @note.update_attributes(:check => params[:check])
       sync_update @note
       # ... update successful
+      render 'toggle'
     else
       # ... update failed
+      render nothing: true
     end
-    render :nothing => true
   end
 
   private
