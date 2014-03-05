@@ -5,7 +5,6 @@ feature "Notes / Character Countdown" do
   scenario "user can see character countdown when creating a note", js: true do
     sign_in
     visit new_note_path
-    save_and_open_page
     assert page.has_content?("140 characters remaining")
     fill_in "note_content", with: "MEOW MIX MEOW MIX PLEASE DELIVER!"
     assert page.has_content?("107 characters remaining")
