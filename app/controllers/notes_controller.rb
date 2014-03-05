@@ -7,7 +7,8 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     if params[:groups]
-      @notes = Note.where(group_id: params[:groups])
+      groups = current_user.groups.where(id: params[:groups])
+      @notes = Note.where(group_id: groups)
     end
   end
 
