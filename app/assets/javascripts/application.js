@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require toggle
+//= require groupshow
 //= require pusher
 //= require sync
 //= require_tree .
