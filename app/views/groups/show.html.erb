@@ -16,6 +16,6 @@
 	<%= link_to 'Back to Groups', groups_path %>
 </div>
 
-<% @group.notes.order(:id).each do |note| %>
+<% @notes.order(:id).each do |note| %>
   <%= sync partial: 'note', resource: note %>
 <% end %>

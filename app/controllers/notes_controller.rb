@@ -6,6 +6,9 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
+    if params[:groups]
+      @notes = Note.where(group_id: params[:groups])
+    end
   end
 
   # GET /notes/1
