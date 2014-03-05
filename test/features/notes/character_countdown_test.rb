@@ -10,7 +10,7 @@ feature "Notes / Character Countdown" do
     page.text.must_include "107 characters remaining"
   end
 
-  scenario "user can see character countdown when editing a note" do
+  scenario "user can see character countdown when editing a note", js: true do
     require_js
     sign_in(:lillian)
     visit edit_note_path(notes(:jnote))
