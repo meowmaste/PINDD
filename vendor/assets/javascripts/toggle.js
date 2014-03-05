@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $(".note-check").bind('change', function(){
+  $(document).on('change', '.note-check', function(){
     $.ajax({
       url: '/notes/'+this.value+'/toggle',
       type: 'POST',
