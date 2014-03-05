@@ -1,11 +1,8 @@
 require "test_helper"
 
 feature "Notes / Character Countdown" do
-  before(:all) do
-    Capybara.current_driver = :webkit
-  end
 
-  scenario "user can see character countdown when creating a note" do
+  scenario "user can see character countdown when creating a note", js: true do
     sign_in
     visit new_note_path
     page.text.must_include "140 characters remaining"
@@ -14,6 +11,7 @@ feature "Notes / Character Countdown" do
   end
 
   scenario "user can see character countdown when editing a note" do
+    require_js
     sign_in(:lillian)
     visit edit_note_path(notes(:jnote))
     page.text.must_include "118 characters remaining"

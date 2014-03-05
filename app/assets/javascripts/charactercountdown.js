@@ -4,8 +4,10 @@ function updateCountdown() {
     jQuery('.countdown').text(remaining + ' characters remaining.');
 }
 
-jQuery(document).ready(function($) {
-    updateCountdown();
-    $('#note_content').change(updateCountdown);
-    $('#note_content').keyup(updateCountdown);  
+jQuery(document).ready(function($) {  
+    var $note = $('#note_content');
+    if ($note.length > 0) {
+      updateCountdown();
+      $note.change(updateCountdown).keyup(updateCountdown);  
+    }
 });
