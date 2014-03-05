@@ -4,7 +4,7 @@ Pindd::Application.routes.draw do
   devise_for :users
   resources :notes do
     member do
-      post 'toggle'
+      put 'toggle'
     end
   end
 
