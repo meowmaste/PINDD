@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
     def create_welcome_note(group)
       welcome_note = Note.new
-      welcome_note.content = "Welcome to PYNDD! Share reminders with your friends!"
+      welcome_note.content = "Welcome to PYNDD! Share notes with your friends!"
       if welcome_note.save
         group.notes << welcome_note
       else
