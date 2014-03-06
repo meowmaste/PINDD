@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Pindd" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Pindd" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Pyndd" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Pyndd" %>">
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <% if Rails.env.development? %>
@@ -20,13 +20,15 @@
       ga('create', 'UA-47868023-1', 'pindd.herokuapp.com');
       ga('send', 'pageview');
     </script>
-    <link  href="https://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Averia+Sans+Libre|Flamenco' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <% if user_signed_in? %>
       <%= render 'layouts/navigation' %>
     <% end %>
-
+ <% if user_signed_in? %>
+      <%= render 'layouts/user' %>
+    <% end %>
     <div class="center">
       <% flash.each do |name, msg| -%>
         <%= content_tag :div, msg, class: name %>
@@ -35,8 +37,5 @@
 
     <%= yield %>
 
-    <% if user_signed_in? %>
-      <%= render 'layouts/user' %>
-    <% end %>
   </body>
 </html>

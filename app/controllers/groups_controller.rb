@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.where(default_group: false).includes(:users).where("users.id"=>current_user.id)
+    @groups = Group.where(default_group: false).includes(:users).where("users.id" => current_user.id)
   end
 
   # GET /groups/1
@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params.slice!(:"add_member",:"remove_member"))
+    @group = Group.new(group_params.slice!(:"add_member", :"remove_member"))
     @group.default_group = false
 
     respond_to do |format|
