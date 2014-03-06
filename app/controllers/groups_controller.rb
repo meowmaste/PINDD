@@ -83,7 +83,7 @@ class GroupsController < ApplicationController
     end
 
     def process_add_member
-      add_member = User.find_by(email: group_params[:"add_member"])
+      add_member = User.find_by(email: group_params[:"add_member"].downcase)
       if add_member
         @group.users << add_member
         flash[:add_member] =  group_params[:"add_member"] + ' was added to group.'
