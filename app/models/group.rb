@@ -4,6 +4,10 @@ class Group < ActiveRecord::Base
 
   validates :name, presence: true
 
+  def before_save
+    self.email = self.email.downcase
+  end
+
   def add_member
   end
 
