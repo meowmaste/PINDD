@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function toggleCheckbox() {
   $(document).on('click', '.note-check', function(){
     $.ajax({
       url: '/notes/'+this.value+'/toggle',
@@ -6,4 +6,8 @@ $(document).ready(function() {
       data: {"check": this.checked}
     });
   });
+}
+
+jQuery(document).ready(function($) {
+  toggleCheckbox();
 });
