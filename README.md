@@ -1,6 +1,7 @@
 # PINDD - Post-It Note Driven Development
 
 [![Build Status](https://travis-ci.org/meowmaste/PINDD.png?branch=master)](https://travis-ci.org/meowmaste/PINDD)
+[![Code Climate](https://codeclimate.com/repos/5317dfb76956803f1b0091fc/badges/7e1f80a6544859d2f288/gpa.png)](https://codeclimate.com/repos/5317dfb76956803f1b0091fc/feed)
 
 [PINDD live](http://pindd.herokuapp.com)
 
@@ -33,3 +34,4 @@ end
 
 * Joslyn Rosbrook (https://github.com/meowmaste)
 * Lillian Ng (https://github.com/orangeninjamidget)
+* Amanda Spiegel
