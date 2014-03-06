@@ -121,6 +121,8 @@ GEM
     jquery-ui-rails (4.2.0)
       railties (>= 3.2.16)
     json (1.8.1)
+    jwt (0.1.11)
+      multi_json (>= 1.5)
     launchy (2.4.2)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -227,6 +229,10 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.9.6)
       ansi
+    twilio-ruby (3.11.5)
+      builder (>= 2.1.2)
+      jwt (>= 0.1.2)
+      multi_json (>= 1.3.0)
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -269,4 +275,5 @@ DEPENDENCIES
   sync
   thin
   turn
+  twilio-ruby
   uglifier (>= 1.3.0)
