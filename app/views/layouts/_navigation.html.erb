@@ -10,7 +10,7 @@
     <% end %>
   </div>
   <div class="btn-group">
-    <form id="myForm">
+    <form id="group-form">
     <li class="dropdown">
     <button type= "button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
         <span class="caret"></span>
@@ -18,9 +18,10 @@
     </button>
     <ul class="dropdown-menu" role="menu">
       <% @user_groups.each do |group| %>
-      <li><input name="groups[]" value="<%= group.id %>" type="checkbox"/><%= link_to group.name, group_path(group) %></li>
+      <li><input name="groups[]" value="<%= group.id %>" type="checkbox" <%= params[:groups].nil? || params[:groups].include?(group.id.to_s) ? "checked='checked'" : '' %>/><%= link_to group.name, group_path(group) %></li>
       <% end %>
       <li class ="divider"></li>
+
       <li><%= link_to 'My Notes', root_path %></li>
     </ul>
   </li>
