@@ -28,8 +28,4 @@ class ActiveSupport::TestCase
     script = "$('#{jQuerySelector}').trigger('change');"
     page.driver.execute_script(script);
   end
-
-  def require_js
-    Capybara.current_driver = :webkit
-  end 
 end
