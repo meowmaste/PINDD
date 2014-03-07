@@ -14,7 +14,7 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require bootstrap
-//= require toggle
 //= require pusher
 //= require sync
+//= require toggle
 //= require_tree .
