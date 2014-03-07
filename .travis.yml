@@ -6,7 +6,11 @@ postgres:
   database: myapp_test
   username: postgres
 before_script:
-  - "psql -c 'create database pindd_test;' -U postgres"
-  - "rake db:migrate"
+- psql -c 'create database pindd_test;' -U postgres
+- rake db:migrate
 env:
-  SECRET_KEY_BASE="$(bundle exec rake secret)"
+  matrix:
+  - SECRET_KEY_BASE="$(bundle exec rake secret)"
+  global:
+    secure: "XV8yL9hyVeGdqkrlBnW8kWOgDwr5yA0A9naXvLYsciLOk8c2ux0BAyeFF7BTKBFqLTwie9zDvujNck68EMUL/+xSMoU8GxLMdslKljcgObMfE83iFBnY6lZODhi0Isg+hEInlYjAMl0MdlfRmlJGBEet6BEiXdbHBiLUUA2XTZY="
+    secure: "KbedcpfmHK52+kvI5QcbwRaaekYPEtLZq4wIy1hFGEs+eioStEfWlakVeFmPFNIGuY3t0camShUKuevC7eexwSLEQ1jJFYb9yQSeudqUk22MVKVCjIHhCz93UJou9gBnYu5Y5te8luV1qmMN5v9pQlUPiGp6N2eZtgoI/20iS4w="
