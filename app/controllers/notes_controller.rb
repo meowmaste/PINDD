@@ -71,7 +71,9 @@ class NotesController < ApplicationController
   def toggle
     @note = Note.find(params[:id])
     if @note.update_attributes(:check => params[:check])
-
+      if @note.check
+        TextNotification.new(message: "Hi, #{current_user.email} marked '#{@note.content}' in #{@note.group.name} as complete", group: @note.group, created_by: current_user).send_text 
+      end
       sync_update @note
       # ... update successful
       render 'toggle'
