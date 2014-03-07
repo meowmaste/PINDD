@@ -10,7 +10,7 @@ feature "Groups / Creating A Group" do
   scenario "user can create a group" do
     sign_in(:user)
     visit new_group_path
-    fill_in "Name", with: "new group name"
+    fill_in "group_name", with: "new group name"
     fill_in "group_member_to_add", with: users(:lillian).email
     click_on "Create Group"
 

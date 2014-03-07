@@ -1,3 +1,8 @@
+admin_default:
+  name: Admin-default
+  users: admin
+  default_group: true
+
 joslyn_default:
   name: Joslyn-default
   users: joslyn
