@@ -1,4 +1,13 @@
 class TextNotification
+  # override send text here
+  SEND_TEXT = false
+
+  def self.send_texts
+    @@send_text = ENV["RAILS_ENV"].eql? "test" ? false : true
+    @@send_text = SEND_TEXT
+    @@send_text
+  end
+
   def initialize message: nil, group: nil, created_by: nil
     @msg = message
     @group = group
@@ -12,7 +21,7 @@ class TextNotification
 
     if jro.groups.include?(@group) && jro != @created_by
       @twilio_client.account.sms.messages.create(
-        :from => "+1#{ENV["TWILIO_NUMBER"]}", 
+        :from => "+1#{ENV["TWILIO_NUMBER"]}",
         :to => ENV["TWILIO_JROS"],
         :body => @msg
       )
@@ -20,7 +29,7 @@ class TextNotification
 
     if lil.present? && lil.groups.include?(@group) && lil != @created_by
       @twilio_client.account.sms.messages.create(
-        :from => "+1#{ENV["TWILIO_NUMBER"]}", 
+        :from => "+1#{ENV["TWILIO_NUMBER"]}",
         :to => ENV["TWILIO_LIL"],
         :body => @msg
       )
