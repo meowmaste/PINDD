@@ -24,10 +24,8 @@
   </head>
   <body>
     <% if user_signed_in? %>
-      <%= render 'layouts/navigation' %>
-    <% end %>
- <% if user_signed_in? %>
       <%= render 'layouts/user' %>
+      <%= render 'layouts/navigation' %>
     <% end %>
     <div class="center">
       <% flash.each do |name, msg| -%>

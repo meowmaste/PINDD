@@ -45,7 +45,10 @@ feature "Notes / Showing A Note" do
     page.text.must_include notes(:lnote).content
     page.text.must_include notes(:jlnote).content
     save_and_open_page
-    page.uncheck("g_"+groups(:joslyn_lillian).id.to_s)
+    #within '#group-form' do
+      uncheck("input[type='checkbox']")
+      #uncheck('#g_'+groups(:joslyn_lillian).id.to_s)
+    #end
     trigger_change("g_"+groups(:joslyn_lillian).id.to_s)
     page.text.must_include notes(:lnote).content
     page.text.wont_include notes(:jlnote).content

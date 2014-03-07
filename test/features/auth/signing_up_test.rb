@@ -18,6 +18,6 @@ feature "Auth / Signing Up" do
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
     click_on "Sign up"
-    page.text.must_include "Email has already been taken"
+    page.text.must_include "email has already been taken"
   end
 end
