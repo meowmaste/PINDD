@@ -3,6 +3,16 @@ jnote:
   group: joslyn_default
   check: false
 
+jnote2:
+  content: Joslyn's note that's really really long so that I can test the long character note_helper.... yes this is almost long enough.
+  group: joslyn_default
+  check: true
+
+jnote3:
+  content: Joslyn's note that is medium length! It helps us with code coverage!!
+  group: joslyn_default
+  check: true
+
 lnote:
   content: Lillian's personal note
   group: lillian_default

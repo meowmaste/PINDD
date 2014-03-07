@@ -10,7 +10,7 @@ feature "Groups / Editing A Group" do
   scenario "users can add a member to a group she belongs to" do
     sign_in(:joslyn)
     visit edit_group_path(groups(:joslyn_lillian))
-    fill_in "group_add_member", with: users(:user).email
+    fill_in "group_member_to_add", with: users(:user).email
     click_on "Update Group"
     within (".show-group") do
       page.text.must_include users(:joslyn).email
@@ -23,7 +23,7 @@ feature "Groups / Editing A Group" do
   scenario "users can remove a member to a group she belongs to" do
     sign_in(:joslyn)
     visit edit_group_path(groups(:joslyn_lillian))
-    select(users(:lillian).email, :from => 'Remove member')
+    select(users(:lillian).email, :from => 'group_member_to_remove')
     click_on "Update Group"
     within (".show-group") do
       page.text.must_include users(:joslyn).email
@@ -41,10 +41,10 @@ feature "Groups / Editing A Group" do
   scenario "users cannot remove last member from group" do
     sign_in(:joslyn)
     visit edit_group_path(groups(:joslyn_lillian))
-    select(users(:lillian).email, :from => 'Remove member')
+    select(users(:lillian).email, :from => 'group_member_to_remove')
     click_on "Update Group"
     visit edit_group_path(groups(:joslyn_lillian))
     page.wont_have_content "Remove member"
-    page.wont_have_field "group_remove_member"
+    page.wont_have_field "group_member_to_remove"
   end
 end

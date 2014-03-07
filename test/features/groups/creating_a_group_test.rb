@@ -11,7 +11,7 @@ feature "Groups / Creating A Group" do
     sign_in(:user)
     visit new_group_path
     fill_in "Name", with: "new group name"
-    fill_in "group_add_member", with: users(:lillian).email
+    fill_in "group_member_to_add", with: users(:lillian).email
     click_on "Create Group"
 
     page.text.must_include "new group name"

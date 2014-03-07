@@ -8,9 +8,25 @@ class Group < ActiveRecord::Base
     self.email = self.email.downcase
   end
 
-  def add_member
+  def member_to_add
   end
 
-  def remove_member
+  def member_to_remove
+  end
+
+  def add_member(user_email = nil)
+    if user_email
+      user = User.find_by(email: user_email.downcase)
+      self.users << user unless self.users.include?(user)
+    end
+    user ? true : false
+  end
+
+  def remove_member(user_email = nil)
+    if user_email
+      user = User.find_by(email: user_email)
+      self.users.delete(user)
+    end
+    user ? true : false
   end
 end

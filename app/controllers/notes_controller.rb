@@ -75,7 +75,7 @@ class NotesController < ApplicationController
       render 'toggle'
     else
       # ... update failed
-      render nothing: true
+      #render nothing: true
     end
   end
 
