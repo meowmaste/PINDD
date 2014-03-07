@@ -1,5 +1,5 @@
 <% if @note.check? %>
-  $('.note-label[<%= @note.id %>]').css('text-decoration','line-through')
+  $('#note-label-<%= @note.id %>').css('text-decoration','line-through')
 <% else %>
-  $('.note-label[<%= @note.id %>]').css('text-decoration','none')
+  $('#note-label-<%= @note.id %>').css('text-decoration','none')
 <% end %>

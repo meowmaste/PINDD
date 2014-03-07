@@ -9,7 +9,6 @@ Pindd::Application.routes.draw do
   end
 
   root to: 'notes#index'
-  post 'twilio/sms' => 'twilio#sms'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
