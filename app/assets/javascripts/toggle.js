@@ -3,7 +3,8 @@ function toggleCheckbox() {
     $.ajax({
       url: '/notes/'+this.value+'/toggle',
       type: 'PUT',
-      data: {"check": this.checked}
+      data: {"check": this.checked},
+      dataType: "script"
     });
   });
 }
