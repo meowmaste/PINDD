@@ -12,9 +12,9 @@ env:
   matrix:
   - SECRET_KEY_BASE="$(bundle exec rake secret)"
   global:
-    secure: "XV8yL9hyVeGdqkrlBnW8kWOgDwr5yA0A9naXvLYsciLOk8c2ux0BAyeFF7BTKBFqLTwie9zDvujNck68EMUL/+xSMoU8GxLMdslKljcgObMfE83iFBnY6lZODhi0Isg+hEInlYjAMl0MdlfRmlJGBEet6BEiXdbHBiLUUA2XTZY="
-    secure: "ZT7yNEvmU57GLfFO+OJLBXy42A/Mk4KVrsnzO3CgNKt/hX7iBDNH9M4O9uUAj4J1H88ubaDkYA+YC3Ffx52lUrHlw43G6Bv+dTYZaRJ7cNEx1o7s3pzz+L1A3XWTz/xgFXMpWYMJ4jWQEpuccShLKKB+FUSDlpFeR9zgRgPiqmU="
-    secure: "eHQAkx9YYqNRVYhJop01xai2Qg+G1e/YjcTdJwce/ND4mXGR8yxJF8OLRSjGXzLvgID+kFzR7JKE6QBGcF3n2Y5pURMwQ0DAnKKL9zW3UBFs+VJcl//oQsOVCuUGJ2tkK+gDJEou7CsJls8jCz6uKJMjvLU0ftSB+/Frrd3n2pI="
-    secure: "VcZV/ICkemc4OULw1ZURA5uNh+Wm9sex9AWzmnqM4lBmq7wBvLV/nJJEwpgtvOaViHrS6yoX7lnW7PU0MXDylNW5wf6WcN9p2Dq0YaEsyzGKOtOQoST47s3yYCJcPnq+nc/9kxLfSlm4sjPKbBJM9UV12hSRpIDsaqvBwxcMnrY="
-    secure: "YbnlOkNcfj1qkEcYdOQ2h1TNceSNZbsO2+Fpsg6vIQpIc0Djf56/a4jMHgpe3KWtxulkxNrTwVpoVHoOwOOFLVu7hiD+Z3NCBxY/klOgdv1pnyfPCpht2oJcBsacRmgvuAmdUOwFdlVB2LBBUL9jNogumw2eGN94L9SL3g6UKtQ="
-    secure: "XzDWrcvyCD7H+PTsXcvttVLwMQDzMfkTDSj314zZRZgsHhi2mYjI3+JN7UkPF67FxcZsws9i+rXB+Cjvx+uUbeWO5j2PMuQTKGUpqxQ34Jjm6J4rnvs/ppHp3Ygr0awNaynvJItkmkoUAnzC4ceuzn8H+P57yGnAVJrvqea4ZDU="
+    - secure: "XV8yL9hyVeGdqkrlBnW8kWOgDwr5yA0A9naXvLYsciLOk8c2ux0BAyeFF7BTKBFqLTwie9zDvujNck68EMUL/+xSMoU8GxLMdslKljcgObMfE83iFBnY6lZODhi0Isg+hEInlYjAMl0MdlfRmlJGBEet6BEiXdbHBiLUUA2XTZY="
+    - secure: "ZT7yNEvmU57GLfFO+OJLBXy42A/Mk4KVrsnzO3CgNKt/hX7iBDNH9M4O9uUAj4J1H88ubaDkYA+YC3Ffx52lUrHlw43G6Bv+dTYZaRJ7cNEx1o7s3pzz+L1A3XWTz/xgFXMpWYMJ4jWQEpuccShLKKB+FUSDlpFeR9zgRgPiqmU="
+    - secure: "eHQAkx9YYqNRVYhJop01xai2Qg+G1e/YjcTdJwce/ND4mXGR8yxJF8OLRSjGXzLvgID+kFzR7JKE6QBGcF3n2Y5pURMwQ0DAnKKL9zW3UBFs+VJcl//oQsOVCuUGJ2tkK+gDJEou7CsJls8jCz6uKJMjvLU0ftSB+/Frrd3n2pI="
+    - secure: "VcZV/ICkemc4OULw1ZURA5uNh+Wm9sex9AWzmnqM4lBmq7wBvLV/nJJEwpgtvOaViHrS6yoX7lnW7PU0MXDylNW5wf6WcN9p2Dq0YaEsyzGKOtOQoST47s3yYCJcPnq+nc/9kxLfSlm4sjPKbBJM9UV12hSRpIDsaqvBwxcMnrY="
+    - secure: "YbnlOkNcfj1qkEcYdOQ2h1TNceSNZbsO2+Fpsg6vIQpIc0Djf56/a4jMHgpe3KWtxulkxNrTwVpoVHoOwOOFLVu7hiD+Z3NCBxY/klOgdv1pnyfPCpht2oJcBsacRmgvuAmdUOwFdlVB2LBBUL9jNogumw2eGN94L9SL3g6UKtQ="
+    - secure: "XzDWrcvyCD7H+PTsXcvttVLwMQDzMfkTDSj314zZRZgsHhi2mYjI3+JN7UkPF67FxcZsws9i+rXB+Cjvx+uUbeWO5j2PMuQTKGUpqxQ34Jjm6J4rnvs/ppHp3Ygr0awNaynvJItkmkoUAnzC4ceuzn8H+P57yGnAVJrvqea4ZDU="
