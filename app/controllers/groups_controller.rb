@@ -32,6 +32,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         @group.users << current_user
+
         process_add_member unless group_params[:"add_member"].empty?
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render action: 'show', status: :created, location: @group }
