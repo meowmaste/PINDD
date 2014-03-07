@@ -7,7 +7,7 @@ feature "Notes / Checking A Note" do
     assert !notes(:lnote).check, "Test started checked"
     check("check_#{notes(:lnote).id}")
 
-    trigger_change("check_#{notes(:lnote).id}")
+    # trigger_change("check_#{notes(:lnote).id}")
     visit note_path(notes(:lnote))
     # puts notes(:lnote).check
     #assert notes(:lnote).check, "Check does not update database"

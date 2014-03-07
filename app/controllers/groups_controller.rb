@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
   load_and_authorize_resource
   skip_load_resource only: [:create]
   before_action :no_default_access, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   # GET /groups
   # GET /groups.json
@@ -26,17 +27,18 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params.slice!(:"add_member", :"remove_member"))
+    @group = Group.new(group_params.slice!(:member_to_add, :member_to_remove))
     @group.default_group = false
 
-    respond_to do |format|
-      if @group.save
-        @group.users << current_user
-
-        process_add_member unless group_params[:"add_member"].empty?
+    if @group.save
+      @group.users << current_user
+      process_add_member unless group_params[:member_to_add].empty?
+      respond_to do |format|
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render action: 'show', status: :created, location: @group }
-      else
+      end
+    else
+      respond_to do |format|
         format.html { render action: 'new' }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
@@ -46,14 +48,16 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    process_add_member unless group_params[:"add_member"].empty?
-    process_remove_member unless group_params[:"remove_member"].nil? || group_params[:"remove_member"].empty?
+    process_add_member unless group_params[:member_to_add].blank?
+    process_remove_member unless group_params[:member_to_remove].blank?
 
-    respond_to do |format|
-      if @group.update(group_params.slice!(:"add_member",:"remove_member"))
+    if @group.update(group_params.slice!(:member_to_add,:member_to_remove))
+      respond_to do |format|
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { head :no_content }
-      else
+      end
+    else
+      respond_to do |format|
         format.html { render action: 'edit' }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
@@ -74,7 +78,7 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :color, :add_member, :remove_member)
+      params.require(:group).permit(:name, :color, :member_to_add, :member_to_remove)
     end
 
     def no_default_access
@@ -84,22 +88,16 @@ class GroupsController < ApplicationController
     end
 
     def process_add_member
-      add_member = User.find_by(email: group_params[:"add_member"].downcase)
-      if add_member
-        @group.users << add_member
-        flash[:add_member] =  group_params[:"add_member"] + ' was added to group.'
+      if @group.add_member(group_params[:member_to_add])
+        flash[:add_member] = group_params[:member_to_add] + ' was added to group.'
       else
-        flash[:add_member_fail] = group_params[:"add_member"] + ' was not added to group.'
+        flash[:add_member_fail] = group_params[:member_to_add] + ' was not added to group.'
       end
     end
 
     def process_remove_member
-      remove_member = User.find_by(email: group_params[:"remove_member"])
-      if remove_member
-        @group.users.delete(remove_member)
-        flash[:remove_member] =  group_params[:"remove_member"]+' was removed from group.'
-      else
-        # shouldn't get here....
+      if @group.remove_member(group_params[:member_to_remove])
+        flash[:remove_member] = group_params[:member_to_remove]+ ' was removed from group.'
       end
     end
 end
