@@ -25,7 +25,7 @@ class ActiveSupport::TestCase
 
   #for checkbox test
   def trigger_change(jQuerySelector)
-    script = "$('#{jQuerySelector}').trigger('click');"
+    script = "$('#{jQuerySelector}').trigger('change');"
     page.driver.execute_script(script);
   end
 end

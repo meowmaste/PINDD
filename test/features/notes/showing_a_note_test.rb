@@ -38,4 +38,16 @@ feature "Notes / Showing A Note" do
     visit note_path(notes(:jlnote))
     page.text.must_include notes(:jlnote).content
   end
+
+  scenario "user can see use filter to select which groups to show", js: true do
+    sign_in(:lillian)
+    visit notes_path
+    page.text.must_include notes(:lnote).content
+    page.text.must_include notes(:jlnote).content
+    save_and_open_page
+    page.uncheck("g_"+groups(:joslyn_lillian).id.to_s)
+    trigger_change("g_"+groups(:joslyn_lillian).id.to_s)
+    page.text.must_include notes(:lnote).content
+    page.text.wont_include notes(:jlnote).content
+  end
 end
