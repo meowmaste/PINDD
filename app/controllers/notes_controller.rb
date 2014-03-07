@@ -33,7 +33,8 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        TextNotification.new(message: "Hi, #{current_user.email} added '#{@note.content}' to #{@note.group.name}", group: @note.group, created_by: current_user).send_text 
+        TextNotification.new(message: "Hi, #{current_user.email} added '#{@note.content}' to #{@note.group.name}",
+          group: @note.group, created_by: current_user).send_text
         format.html { redirect_to notes_url, notice: 'Note was successfully created.' }
         format.json { render action: 'show', status: :created, location: @note }
       else
@@ -72,14 +73,12 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     if @note.update_attributes(:check => params[:check])
       if @note.check
-        TextNotification.new(message: "Hi, #{current_user.email} marked '#{@note.content}' in #{@note.group.name} as complete", group: @note.group, created_by: current_user).send_text 
+        TextNotification.new(message: "Hi, #{current_user.email} marked '#{@note.content}' in #{@note.group.name} as complete",
+          group: @note.group, created_by: current_user).send_text
       end
       sync_update @note
       # ... update successful
       render 'toggle'
-    else
-      # ... update failed
-      #render nothing: true
     end
   end
 
