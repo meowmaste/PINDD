@@ -8,13 +8,14 @@ module NotesHelper
 	end
 
   def font_size note
-    if note.content.length < 20
+    if note.content.length < 25
       return "font-size:50px;line-height:55px"
     elsif note.content.length < 50
       return "font-size:40px;line-height:45px"
-    elsif note.content.length < 100
+    elsif note.content.length < 75
       return "font-size:30px;line-height:35px"
+    elsif note.content.length < 100
     end
-    "font-size:20px;line-height:22px"
+    "font-size:18px;line-height:20px"
   end
 end
