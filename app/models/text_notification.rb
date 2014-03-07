@@ -8,7 +8,7 @@ class TextNotification
 
   def send_text
     jro = User.find_by(email:'joslyn@example.com')
-    lil = User.find_by(email:'fake1231231@example.com')
+    lil = User.find_by(email: ENV["TWILIO_LILE"]
 
     if jro.groups.include?(@group) && jro != @created_by
       @twilio_client.account.sms.messages.create(
