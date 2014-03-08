@@ -14,6 +14,9 @@ feature "Notes / Editing A Note" do
     click_on "Update Note"
     page.text.must_include "Note was successfully updated"
     page.text.must_include "Lillian's note has been edited!"
+    visit edit_note_path(notes(:lnote))
+    fill_in "note_content", with: ""
+    click_on "Update Note"
   end
 
   scenario "user cannot edit note that she doesn't own" do

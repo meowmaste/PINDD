@@ -31,40 +31,45 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
 
-    respond_to do |format|
+    # respond_to do |format|
       if @note.save
-        format.html { redirect_to notes_url, notice: 'Note was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @note }
+        redirect_to notes_url, notice: 'Note was successfully created.'
+        # format.html { redirect_to notes_url, notice: 'Note was successfully created.' }
+        # format.json { render action: 'show', status: :created, location: @note }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
+        render action: "new"
+      #   format.html { render action: 'new' }
+      #   format.json { render json: @note.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
-    respond_to do |format|
+    # respond_to do |format|
       if @note.update(note_params)
         sync_update @note
-        format.html { redirect_to notes_url, notice: 'Note was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to notes_url, notice: 'Note was successfully updated.' 
+        # format.html { redirect_to notes_url, notice: 'Note was successfully updated.' }
+        # format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
+        render action: 'edit'
+        # format.html { render action: 'edit' }
+        # format.json { render json: @note.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
     @note.destroy
-    respond_to do |format|
-      format.html { redirect_to notes_url }
-      format.json { head :no_content }
-    end
+    redirect_to notes_url 
+    # respond_to do |format|
+    #   format.html { redirect_to notes_url }
+    #   format.json { head :no_content }
+    # end
   end
 
   # PUT /notes/1/toggle

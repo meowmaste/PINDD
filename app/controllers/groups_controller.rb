@@ -34,15 +34,17 @@ class GroupsController < ApplicationController
     if @group.save
       @group.users << current_user
       process_add_member unless @member_to_add.blank?
-      respond_to do |format|
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @group }
-      end
+      redirect_to @group, notice: 'Group was successfully created.'
+      # respond_to do |format|
+      #   format.html { redirect_to @group, notice: 'Group was successfully created.' }
+      #   format.json { render action: 'show', status: :created, location: @group }
+      # end
     else
-      respond_to do |format|
-        format.html { render action: 'new' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+      render action: 'new'
+      # respond_to do |format|
+      #   format.html { render action: 'new' }
+      #   format.json { render json: @group.errors, status: :unprocessable_entity }
+      # end
     end
   end
 
@@ -53,15 +55,17 @@ class GroupsController < ApplicationController
     process_remove_member unless @member_to_remove.blank?
 
     if @group.update(@group_params)
-      respond_to do |format|
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { head :no_content }
-      end
+      redirect_to @group, notice: 'Group was successfully updated.'
+      # respond_to do |format|
+      #   format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+      #   format.json { head :no_content }
+      # end
     else
-      respond_to do |format|
-        format.html { render action: 'edit' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+      render action: 'edit'
+      # respond_to do |format|
+      #   format.html { render action: 'edit' }
+      #   format.json { render json: @group.errors, status: :unprocessable_entity }
+      # end
     end
   end
 
@@ -69,10 +73,11 @@ class GroupsController < ApplicationController
   # DELETE /groups/1.json
   def destroy
     @group.destroy unless @group.default_group
-    respond_to do |format|
-      format.html { redirect_to groups_url }
-      format.json { head :no_content }
-    end
+    redirect_to groups_url
+    # respond_to do |format|
+    #   format.html { redirect_to groups_url }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

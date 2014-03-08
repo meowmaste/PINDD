@@ -14,6 +14,9 @@ feature "Notes / Creating A Note" do
     click_on "Create Note"
     page.text.must_include "YAYAYAY!!!"
     page.text.must_include "Note was successfully created"
+    click_link "New Note"
+    fill_in "note_content", with: ""
+    click_on "Create Note"
   end
 
   scenario "user can create notes" do
