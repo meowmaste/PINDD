@@ -1,6 +1,6 @@
 class TextNotification
   # override send text here
-  SEND_TEXT = true
+  SEND_TEXT = false
 
   def self.send_texts
     @@send_text = ENV["RAILS_ENV"].eql? "test" ? false : true
