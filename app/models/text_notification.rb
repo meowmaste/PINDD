@@ -3,9 +3,7 @@ class TextNotification
   SEND_TEXT = false
 
   def self.send_texts
-    @@send_text = ENV["RAILS_ENV"].eql? "test" ? false : true
-    @@send_text = SEND_TEXT
-    @@send_text
+    SEND_TEXT && ENV["RAILS_ENV"].eql? "test" ? false : true
   end
 
   def initialize message: nil, group: nil, created_by: nil
